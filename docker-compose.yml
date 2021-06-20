@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+    ml:
+        build: .
+        volumes:
+            - .:/development/ml-tutorials
+            - /etc/localtime:/etc/localtime:ro
+        tty: true
+        stdin_open: true
