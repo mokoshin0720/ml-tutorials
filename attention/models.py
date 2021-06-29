@@ -38,7 +38,7 @@ class AttentionDecoder(nn.Module):
             weight_sum = torch.sum(weighted_hs, axis=1).unsqueeze(1)
             c = torch.cat([c, weight_sum], dim=1)
         c = c[:, 1:, :]
-
+        
         output = torch.cat([output, c], dim=2)
         output = self.hidden2linear(output)
         return output, state, attention_weight
